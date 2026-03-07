@@ -77,11 +77,11 @@ export default function Services() {
                     </h2>
                 </div>
 
-                <div className={styles.grid}>
+                <div className={`${styles.grid} reveal`}>
                     {services.map((svc, i) => (
                         <div
                             key={i}
-                            className={`${styles.card} ${openIndex === i ? styles.cardOpen : ''} reveal reveal-delay-${Math.min(i + 1, 4) as 1 | 2 | 3 | 4}`}
+                            className={`${styles.card} ${openIndex === i ? styles.cardOpen : ''}`}
                             onClick={() => setOpenIndex(openIndex === i ? null : i)}
                             role="button"
                             tabIndex={0}

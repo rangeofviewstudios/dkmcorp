@@ -79,11 +79,11 @@ export default function Work() {
                     </div>
                 </div>
 
-                <div className={styles.grid}>
+                <div className={`${styles.grid} reveal`}>
                     {filtered.map((p, i) => (
                         <div
                             key={`${p.country}-${i}`}
-                            className={`${styles.card} reveal reveal-delay-${(i % 3 + 1) as 1 | 2 | 3}`}
+                            className={styles.card}
                         >
                             <div className={styles.cardHeader}>
                                 <div className={styles.meta}>

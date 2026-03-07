@@ -101,8 +101,7 @@
 .toggle span {
     position: absolute;
     background: var(--off-white-dim);
-    transition: transform var(--dur-med) var(--ease),
-        opacity var(--dur-med) var(--ease);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .toggle span:first-child {
@@ -115,23 +114,28 @@
     height: 14px;
 }
 
+.toggleOpen span:first-child {
+    transform: rotate(45deg);
+}
+
 .toggleOpen span:last-child {
-    opacity: 0;
-    transform: rotate(90deg) scaleY(0);
+    transform: rotate(45deg);
 }
 
 /* Bullet list reveal */
 .bullets {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.45s var(--ease-out),
-        opacity 0.45s var(--ease-out);
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
 }
 
 .cardOpen .bullets {
-    max-height: 320px;
+    max-height: 400px;
     opacity: 1;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bullets ul {
