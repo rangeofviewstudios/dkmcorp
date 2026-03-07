@@ -1,0 +1,169 @@
+.services {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+}
+
+.header {
+    margin-bottom: var(--sp-8);
+}
+
+.heading {
+    color: var(--off-white);
+    margin-top: var(--sp-3);
+}
+
+.heading em {
+    font-style: italic;
+    color: var(--off-white-dim);
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-bottom: none;
+    padding: var(--sp-5) var(--sp-5);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease),
+        border-color var(--dur-fast) var(--ease);
+    user-select: none;
+    outline: none;
+}
+
+.card:last-child {
+    border-bottom: 1px solid var(--border);
+}
+
+.card:focus-visible {
+    border-color: var(--accent);
+}
+
+.card:hover,
+.cardOpen {
+    background: var(--bg-card);
+}
+
+.cardTop {
+    display: grid;
+    grid-template-columns: 56px 1fr 28px;
+    gap: var(--sp-3);
+    align-items: center;
+}
+
+.num {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    align-self: start;
+    padding-top: 4px;
+}
+
+.titleWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title {
+    color: var(--off-white);
+    transition: color var(--dur-fast) var(--ease);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.card:hover .title,
+.cardOpen .title {
+    color: var(--off-white);
+}
+
+.subtitle {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    transition: color var(--dur-fast) var(--ease);
+}
+
+/* Toggle icon */
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.toggle span {
+    position: absolute;
+    background: var(--off-white-dim);
+    transition: transform var(--dur-med) var(--ease),
+        opacity var(--dur-med) var(--ease);
+}
+
+.toggle span:first-child {
+    width: 14px;
+    height: 1px;
+}
+
+.toggle span:last-child {
+    width: 1px;
+    height: 14px;
+}
+
+.toggleOpen span:last-child {
+    opacity: 0;
+    transform: rotate(90deg) scaleY(0);
+}
+
+/* Bullet list reveal */
+.bullets {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s var(--ease-out),
+        opacity 0.45s var(--ease-out);
+    opacity: 0;
+}
+
+.cardOpen .bullets {
+    max-height: 320px;
+    opacity: 1;
+}
+
+.bullets ul {
+    padding: var(--sp-4) 0 var(--sp-2) 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bullet {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--off-white-dim);
+}
+
+.bulletDot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .cardTop {
+        grid-template-columns: 40px 1fr 24px;
+    }
+
+    .bullets ul {
+        padding-left: 40px;
+    }
+}

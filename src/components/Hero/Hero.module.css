@@ -1,0 +1,252 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: var(--nav-height);
+}
+
+/* Decorative vertical grid lines */
+.gridLines {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.gridLines span {
+    width: 1px;
+    height: 100%;
+    background: var(--border);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding-top: var(--sp-12);
+    padding-bottom: var(--sp-16);
+}
+
+.label {
+    margin-bottom: var(--sp-5);
+    animation: fadeInUp 0.8s var(--ease-out) 0.2s both;
+}
+
+.headlineWrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-8);
+    align-items: end;
+}
+
+.headline {
+    color: var(--off-white);
+    animation: fadeInUp 1s var(--ease-out) 0.35s both;
+}
+
+.secondary {
+    padding-bottom: 4px;
+    animation: fadeInUp 1s var(--ease-out) 0.55s both;
+}
+
+.secondaryText {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.3;
+    margin-bottom: var(--sp-3);
+}
+
+.secondaryBody {
+    max-width: 380px;
+    margin-bottom: var(--sp-5);
+    font-size: 0.88rem;
+}
+
+.ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    border: 1px solid var(--border-hover);
+    padding: 14px 28px;
+    border-radius: 2px;
+    transition: border-color var(--dur-fast) var(--ease),
+        background var(--dur-fast) var(--ease),
+        color var(--dur-fast) var(--ease);
+}
+
+.ctaBtn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+}
+
+.ctaBtn::after {
+    content: '→';
+    transition: transform var(--dur-fast) var(--ease);
+}
+
+.ctaBtn:hover::after {
+    transform: translateX(4px);
+}
+
+/* Animated HR */
+.line {
+    width: 0;
+    height: 1px;
+    background: var(--border-hover);
+    margin: var(--sp-8) 0 var(--sp-6);
+    transition: width 1.2s var(--ease-out);
+}
+
+.lineVisible {
+    width: 100%;
+}
+
+/* Geography */
+.geo {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    animation: fadeInUp 1s var(--ease-out) 0.8s both;
+}
+
+.geoLabel {
+    flex-shrink: 0;
+}
+
+.geoList {
+    display: flex;
+    gap: 0;
+}
+
+.geoItem {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--off-white-dim);
+    padding: 0 var(--sp-3);
+    border-left: 1px solid var(--border-hover);
+}
+
+.geoItem:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Scroll indicator */
+.scrollIndicator {
+    position: absolute;
+    bottom: var(--sp-6);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 1s var(--ease-out) 1.5s both;
+}
+
+.scrollLine {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, var(--off-white-dim));
+    animation: scrollPulse 2s var(--ease) infinite;
+}
+
+.scrollText {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 235, 0.3);
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scaleY(1.2);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .headlineWrap {
+        grid-template-columns: 1fr;
+        gap: var(--sp-5);
+    }
+
+    .secondary {
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .geo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-2);
+    }
+
+    .geoList {
+        flex-wrap: wrap;
+        gap: var(--sp-2);
+    }
+
+    .geoItem {
+        border-left: none;
+        padding: 0;
+    }
+
+    .geoItem::before {
+        content: '·';
+        margin-right: 6px;
+        color: var(--accent);
+    }
+
+    .geoItem:first-child::before {
+        display: none;
+    }
+}

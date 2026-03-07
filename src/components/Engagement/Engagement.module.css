@@ -1,0 +1,124 @@
+.engagement {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-10);
+}
+
+.heading {
+    color: var(--off-white);
+    margin-top: var(--sp-3);
+}
+
+.heading em {
+    font-style: italic;
+    color: var(--off-white-dim);
+}
+
+/* Grid */
+.modelGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.model {
+    background: var(--bg-surface);
+    padding: var(--sp-5) var(--sp-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    transition: background var(--dur-fast) var(--ease);
+}
+
+.model:hover {
+    background: var(--bg-card);
+}
+
+.modelNum {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--accent);
+    opacity: 0.5;
+}
+
+.modelTitle {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--off-white);
+    line-height: 1.3;
+}
+
+.modelDesc {
+    font-size: 0.8rem;
+    line-height: 1.65;
+    margin-top: var(--sp-1);
+}
+
+/* CTA row */
+.cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+}
+
+.ctaText {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--off-white-dim);
+    max-width: 380px;
+}
+
+.ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(201, 169, 110, 0.4);
+    padding: 14px 28px;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background var(--dur-fast) var(--ease),
+        border-color var(--dur-fast) var(--ease),
+        color var(--dur-fast) var(--ease);
+}
+
+.ctaBtn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+}
+
+@media (max-width: 900px) {
+    .modelGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .modelGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
