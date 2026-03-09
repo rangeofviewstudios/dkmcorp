@@ -12,7 +12,7 @@
 }
 
 .nav.scrolled {
-    background: rgba(10, 10, 10, 0.88);
+    background: var(--nav-scrolled-bg);
     backdrop-filter: blur(16px);
     border-color: var(--border);
 }
@@ -89,6 +89,30 @@
 .cta:hover {
     background: var(--accent);
     color: var(--bg);
+}
+
+/* Theme Toggle */
+.themeToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--off-white-dim);
+    transition: color var(--dur-fast) var(--ease),
+        background var(--dur-fast) var(--ease);
+    flex-shrink: 0;
+}
+
+.themeToggle:hover {
+    color: var(--off-white);
+    background: var(--accent-dim);
+}
+
+.themeToggle svg {
+    width: 16px;
+    height: 16px;
 }
 
 /* Hamburger */

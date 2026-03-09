@@ -2,17 +2,38 @@
 
 /* ─── Design Tokens ─────────────────────────────────────────── */
 :root {
-  /* Colors */
-  --bg:            #0A0A0A;
-  --bg-surface:    #111111;
-  --bg-card:       #161616;
-  --off-white:     #F5F0EB;
-  --off-white-dim: #C8C2BB;
-  --accent:        #C9A96E;
-  --accent-dim:    rgba(201, 169, 110, 0.15);
-  --border:        rgba(245, 240, 235, 0.08);
-  --border-hover:  rgba(245, 240, 235, 0.18);
+  /* Colors — Light theme (default) */
+  --bg:              #FAF8F5;
+  --bg-surface:      #F0EBE3;
+  --bg-card:         #E8E2D8;
+  --off-white:       #1C1814;
+  --off-white-dim:   #706860;
+  --accent:          #C9A96E;
+  --accent-dim:      rgba(201, 169, 110, 0.14);
+  --border:          rgba(28, 24, 20, 0.10);
+  --border-hover:    rgba(28, 24, 20, 0.20);
+  --nav-scrolled-bg: rgba(250, 248, 245, 0.92);
+  --text-faint:      rgba(28, 24, 20, 0.35);
+  --badge-bg:        rgba(28, 24, 20, 0.07);
+}
 
+/* ─── Dark Theme ─────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:              #0A0A0A;
+  --bg-surface:      #111111;
+  --bg-card:         #161616;
+  --off-white:       #F5F0EB;
+  --off-white-dim:   #C8C2BB;
+  --accent:          #C9A96E;
+  --accent-dim:      rgba(201, 169, 110, 0.15);
+  --border:          rgba(245, 240, 235, 0.08);
+  --border-hover:    rgba(245, 240, 235, 0.18);
+  --nav-scrolled-bg: rgba(10, 10, 10, 0.88);
+  --text-faint:      rgba(245, 240, 235, 0.30);
+  --badge-bg:        rgba(245, 240, 235, 0.05);
+}
+
+:root {
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans:  'Inter', system-ui, sans-serif;

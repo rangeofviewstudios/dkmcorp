@@ -121,7 +121,7 @@
 
 .completed {
     color: var(--off-white-dim);
-    background: rgba(245, 240, 235, 0.05);
+    background: var(--badge-bg);
 }
 
 .cardHeadline {

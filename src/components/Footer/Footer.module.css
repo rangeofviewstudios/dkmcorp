@@ -92,7 +92,7 @@
 .copy {
     font-size: 0.72rem;
     letter-spacing: 0.08em;
-    color: rgba(245, 240, 235, 0.3);
+    color: var(--text-faint);
 }
 
 @media (max-width: 768px) {
