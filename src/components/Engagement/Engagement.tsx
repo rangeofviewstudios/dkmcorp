@@ -1,6 +1,7 @@
 'use client';
 
 import { useReveal } from '@/hooks/useReveal';
+import ShinyText from '@/components/ShinyText/ShinyText';
 import styles from './Engagement.module.css';
 
 const models = [
@@ -34,7 +35,13 @@ export default function Engagement() {
             <div className="container">
                 <div className={`${styles.inner} reveal`}>
                     <div className={styles.top}>
-                        <span className="t-label">Engagement Model</span>
+                        <ShinyText
+                            text="Engagement Model"
+                            className="t-label"
+                            speed={8}
+                            color="var(--off-white-dim)"
+                            shineColor="var(--accent)"
+                        />
                         <span className="accent-line" style={{ marginTop: '12px' }} />
                         <h2 className={`t-h1 ${styles.heading}`}>
                             We align with businesses

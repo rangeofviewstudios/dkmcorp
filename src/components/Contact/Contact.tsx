@@ -1,23 +1,19 @@
 'use client';
 
 import { useReveal } from '@/hooks/useReveal';
+import ShinyText from '@/components/ShinyText/ShinyText';
 import styles from './Contact.module.css';
 
 const contacts = [
     {
         label: 'Email',
-        href: 'mailto:hello@dkmcorp.com',
-        description: 'hello@dkmcorp.com',
+        href: 'mailto:info@dkmcorp.in',
+        description: 'info@dkmcorp.in',
     },
     {
         label: 'WhatsApp',
-        href: 'https://wa.me/message/dkmcorp',
-        description: 'Message us directly',
-    },
-    {
-        label: 'LinkedIn',
-        href: 'https://linkedin.com/company/dkmcorp',
-        description: 'DKM Corp',
+        href: 'https://wa.me/917093939312',
+        description: '+91 7093939312',
     },
 ];
 
@@ -34,7 +30,13 @@ export default function Contact() {
                 <div className={styles.inner}>
                     {/* Left: Headline */}
                     <div className={styles.left}>
-                        <span className="t-label reveal">Contact</span>
+                        <ShinyText
+                            text="Contact"
+                            className="t-label reveal"
+                            speed={8}
+                            color="var(--off-white-dim)"
+                            shineColor="var(--accent)"
+                        />
                         <span className="accent-line reveal reveal-delay-1" />
                         <h2 className={`t-h1 ${styles.heading} reveal reveal-delay-1`}>
                             If you are building,

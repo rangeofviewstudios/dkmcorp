@@ -1,0 +1,137 @@
+.founder {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--sp-12);
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.right {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter var(--dur-med) var(--ease), transform var(--dur-slow) var(--ease);
+}
+
+
+:global([data-theme="dark"]) .image {
+    filter: grayscale(100%) contrast(1.2) brightness(0.8);
+}
+
+:global([data-theme="dark"]) .right:hover .image {
+    filter: grayscale(0%) contrast(1.1) brightness(0.9);
+}
+
+.heading {
+    color: var(--off-white);
+    margin-bottom: var(--sp-5);
+}
+
+.heading em {
+    font-style: italic;
+    color: var(--off-white-dim);
+}
+
+.body {
+    margin-bottom: var(--sp-3);
+}
+
+/* Collapsible Section */
+.moreText {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-med) var(--ease);
+    overflow: hidden;
+}
+
+.moreText.open {
+    grid-template-rows: 1fr;
+}
+
+.moreContent {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.readMoreBtn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color var(--dur-fast) var(--ease);
+}
+
+.readMoreBtn:hover {
+    color: var(--off-white);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-6);
+    margin-top: var(--sp-4);
+    flex-wrap: wrap;
+}
+
+.email {
+    color: var(--off-white-dim);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: var(--sp-6);
+    border-left: 1px solid var(--border);
+}
+
+.email:hover {
+    color: var(--off-white);
+}
+
+.email::before {
+    content: "✉";
+    color: var(--accent);
+    font-size: 1.1em;
+}
+
+@media (max-width: 900px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: var(--sp-8);
+    }
+
+    .right {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

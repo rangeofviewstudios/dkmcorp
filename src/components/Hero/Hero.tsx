@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import ShinyText from '@/components/ShinyText/ShinyText';
+import TextType from '@/components/TextType/TextType';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -23,9 +25,13 @@ export default function Hero() {
 
             <div className={`container ${styles.content}`}>
                 {/* Upper-left label */}
-                <p className={`t-label ${styles.label}`}>
-                    Private Growth &amp; Operations Partner
-                </p>
+                <ShinyText
+                    text="Private Growth & Operations Partner"
+                    className={`t-label ${styles.label}`}
+                    speed={8}
+                    color="var(--off-white-dim)"
+                    shineColor="var(--accent)"
+                />
 
                 {/* Main headline */}
                 <div className={styles.headlineWrap}>
@@ -37,10 +43,15 @@ export default function Hero() {
 
                     {/* Right secondary statement */}
                     <div className={styles.secondary}>
-                        <p className={styles.secondaryText}>
-                            Execution-first.<br />
-                            Strategy to outcome.
-                        </p>
+                        <TextType
+                            as="p"
+                            className={styles.secondaryText}
+                            text={"Execution-first.\nStrategy to outcome."}
+                            typingSpeed={40}
+                            showCursor={true}
+                            cursorCharacter="_"
+                            loop={false}
+                        />
                         <p className={`t-body ${styles.secondaryBody}`}>
                             We identify performance bottlenecks — whether revenue stagnation,
                             operational inefficiency, or margin compression — and install

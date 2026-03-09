@@ -1,13 +1,62 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './Footer.module.css';
+
+const TIMEZONES = [
+    { label: 'India', zone: 'Asia/Kolkata' },
+    { label: 'Atlanta', zone: 'America/New_York' },
+    { label: 'Dubai', zone: 'Asia/Dubai' },
+    { label: 'Australia', zone: 'Australia/Sydney' },
+];
+
+function useClocks() {
+    const [times, setTimes] = useState<string[]>([]);
+
+    useEffect(() => {
+        const update = () => {
+            const now = new Date();
+            setTimes(
+                TIMEZONES.map((tz) =>
+                    now.toLocaleTimeString('en-US', {
+                        timeZone: tz.zone,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: true,
+                    })
+                )
+            );
+        };
+        update();
+        const id = setInterval(update, 1000);
+        return () => clearInterval(id);
+    }, []);
+
+    return times;
+}
 
 export default function Footer() {
     const year = new Date().getFullYear();
+    const times = useClocks();
 
     return (
         <footer className={styles.footer}>
             <div className={`container ${styles.inner}`}>
                 <div className={styles.left}>
-                    <p className={styles.wordmark}>DKM Corp</p>
+                    <Link
+                        href="/"
+                        className={styles.wordmark}
+                        onClick={(e) => {
+                            if (window.location.pathname === '/') {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                        }}
+                    >
+                        DKM Corp
+                    </Link>
                     <p className={`t-body ${styles.tagline}`}>
                         We Design. We Market. We Operate.
                     </p>
@@ -21,43 +70,60 @@ export default function Footer() {
                     <ul className={styles.contactList}>
                         <li>
                             <a
-                                href="mailto:hello@dkmcorp.com"
+                                href="mailto:info@dkmcorp.in"
                                 className={styles.contactLink}
                             >
-                                Email
+                                info@dkmcorp.in
                             </a>
                         </li>
                         <li>
                             <a
-                                href="https://wa.me/message/dkmcorp"
+                                href="https://wa.me/917093939312"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.contactLink}
                             >
-                                WhatsApp
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://linkedin.com/company/dkmcorp"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.contactLink}
-                            >
-                                LinkedIn
+                                +91 7093939312 (WhatsApp)
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
 
+            {/* Timezone clocks */}
+            <div className={`container ${styles.clockStrip}`}>
+                {TIMEZONES.map((tz, i) => (
+                    <div key={tz.zone} className={styles.clockItem}>
+                        <span className={styles.clockLabel}>{tz.label}</span>
+                        <span className={styles.clockTime}>{times[i] || '--:--:-- --'}</span>
+                    </div>
+                ))}
+            </div>
+
             <div className={`container ${styles.bottom}`}>
-                <p className={styles.copy}>
-                    &copy; {year} DKM Corp. All rights reserved.
-                </p>
-                <p className={styles.copy}>
-                    Private growth &amp; operations partner.
-                </p>
+                <div className={styles.bottomLeft}>
+                    <p className={styles.copy}>
+                        &copy; {year} DKM Corp. All rights reserved.
+                    </p>
+                    <p className={styles.copy}>
+                        Private growth &amp; operations partner.
+                    </p>
+                </div>
+                <div className={styles.curator}>
+                    <span className={styles.copy}>Curated with intention by</span>
+                    <a href="https://www.rovstudios.com/" target="_blank" rel="noopener noreferrer" className={styles.curatorLogos}>
+                        <img
+                            src="/Black_Logo_BG_removed.png"
+                            alt="ROV Logo"
+                            className={styles.logoLight}
+                        />
+                        <img
+                            src="/rovbrownlogo.png"
+                            alt="ROV Logo"
+                            className={styles.logoDark}
+                        />
+                    </a>
+                </div>
             </div>
         </footer>
     );

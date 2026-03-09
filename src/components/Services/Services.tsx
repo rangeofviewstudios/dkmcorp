@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useReveal } from '@/hooks/useReveal';
+import ShinyText from '@/components/ShinyText/ShinyText';
 import styles from './Services.module.css';
 
 const services = [
@@ -68,7 +69,13 @@ export default function Services() {
         >
             <div className="container">
                 <div className={`${styles.header} reveal`}>
-                    <span className="t-label">What We Do</span>
+                    <ShinyText
+                        text="What We Do"
+                        className="t-label"
+                        speed={8}
+                        color="var(--off-white-dim)"
+                        shineColor="var(--accent)"
+                    />
                     <span className="accent-line" style={{ marginTop: '12px' }} />
                     <h2 className={`t-h1 ${styles.heading}`}>
                         Four pillars of

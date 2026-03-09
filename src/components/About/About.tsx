@@ -1,6 +1,7 @@
 'use client';
 
 import { useReveal } from '@/hooks/useReveal';
+import ShinyText from '@/components/ShinyText/ShinyText';
 import styles from './About.module.css';
 
 const stats = [
@@ -21,7 +22,13 @@ export default function About() {
             <div className={`container ${styles.inner}`}>
                 {/* Left column */}
                 <div className={styles.left}>
-                    <span className="t-label reveal">About DKM Corp</span>
+                    <ShinyText
+                        text="About DKM Corp"
+                        className="t-label reveal"
+                        speed={8}
+                        color="var(--off-white-dim)"
+                        shineColor="var(--accent)"
+                    />
                     <span className="accent-line reveal reveal-delay-1" />
                     <h2 className={`t-h1 ${styles.heading} reveal reveal-delay-1`}>
                         A private growth &amp;
@@ -55,9 +62,7 @@ export default function About() {
                             </div>
                         ))}
                     </div>
-                    <div className={`${styles.decorBox} reveal reveal-delay-3`} aria-hidden="true">
-                        <div className={styles.decorInner} />
-                    </div>
+
                 </div>
             </div>
         </section>

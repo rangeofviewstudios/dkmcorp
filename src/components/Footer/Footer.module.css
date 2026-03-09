@@ -82,6 +82,39 @@
     width: 100%;
 }
 
+/* Timezone clocks */
+.clockStrip {
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--sp-6);
+    padding-bottom: var(--sp-6);
+    border-bottom: 1px solid var(--border);
+}
+
+.clockItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.clockLabel {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--off-white-dim);
+}
+
+.clockTime {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--off-white);
+    font-variant-numeric: tabular-nums;
+}
+
 .bottom {
     display: flex;
     justify-content: space-between;
@@ -89,10 +122,46 @@
     padding-top: var(--sp-4);
 }
 
+.bottomLeft {
+    display: flex;
+    gap: var(--sp-4);
+}
+
 .copy {
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     color: var(--text-faint);
+}
+
+.curator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.curatorLogos {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.curatorLogos img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.logoDark {
+    display: none;
+}
+
+:global([data-theme="dark"]) .logoLight {
+    display: none;
+}
+
+:global([data-theme="dark"]) .logoDark {
+    display: block;
+    transform: scale(1.6);
 }
 
 @media (max-width: 768px) {
@@ -111,7 +180,22 @@
 
     .bottom {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: var(--sp-4);
+    }
+
+    .bottomLeft {
+        flex-direction: column;
         gap: var(--sp-1);
+    }
+
+    .clockStrip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--sp-4);
+    }
+
+    .clockItem {
+        align-items: flex-start;
     }
 }

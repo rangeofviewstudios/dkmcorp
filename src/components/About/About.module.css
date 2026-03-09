@@ -90,39 +90,7 @@
     color: var(--off-white-dim);
 }
 
-/* Decorative abstract box */
-.decorBox {
-    position: relative;
-    height: 220px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-}
 
-.decorInner {
-    position: absolute;
-    inset: 20px;
-    border: 1px solid var(--border-hover);
-    border-radius: 2px;
-}
-
-.decorInner::before {
-    content: '';
-    position: absolute;
-    inset: 20px;
-    border: 1px solid rgba(201, 169, 110, 0.15);
-    border-radius: 2px;
-}
-
-.decorInner::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(to top, rgba(201, 169, 110, 0.06), transparent);
-}
 
 @media (max-width: 900px) {
     .inner {
@@ -130,7 +98,5 @@
         gap: var(--sp-8);
     }
 
-    .decorBox {
-        display: none;
-    }
+
 }

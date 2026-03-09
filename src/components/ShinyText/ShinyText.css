@@ -1,0 +1,32 @@
+.shiny-text {
+    display: inline-block;
+    background-image: linear-gradient(var(--shine-spread, 120deg),
+            var(--shine-color, #b5b5b5) 0%,
+            var(--shine-color, #b5b5b5) 40%,
+            var(--shine-highlight, #ffffff) 50%,
+            var(--shine-color, #b5b5b5) 60%,
+            var(--shine-color, #b5b5b5) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-name: shine;
+    animation-duration: var(--shine-speed, 3s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: var(--shine-direction, reverse);
+}
+
+.shiny-text--paused {
+    animation-play-state: paused;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: -200% center;
+    }
+}

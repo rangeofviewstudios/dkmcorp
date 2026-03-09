@@ -125,6 +125,7 @@
 
 .geoLabel {
     flex-shrink: 0;
+    color: var(--accent);
 }
 
 .geoList {
