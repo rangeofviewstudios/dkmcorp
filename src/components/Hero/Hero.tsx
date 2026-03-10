@@ -53,8 +53,8 @@ export default function Hero() {
                             loop={false}
                         />
                         <p className={`t-body ${styles.secondaryBody}`}>
-                            We identify performance bottlenecks — whether revenue stagnation,
-                            operational inefficiency, or margin compression — and install
+                            We identify performance bottlenecks, whether revenue stagnation,
+                            operational inefficiency, or margin compression, and install
                             structured systems to solve them.
                         </p>
                         <a href="#contact" className={styles.ctaBtn}>

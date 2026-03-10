@@ -29,7 +29,7 @@
   --border: rgba(245, 240, 235, 0.08);
   --border-hover: rgba(245, 240, 235, 0.18);
   --nav-scrolled-bg: rgba(10, 10, 10, 0.88);
-  --text-faint: rgba(245, 240, 235, 0.30);
+  --text-faint: rgba(245, 240, 235, 0.45);
   --badge-bg: rgba(245, 240, 235, 0.05);
 }
 
@@ -63,6 +63,20 @@
   --dur-slow: 600ms;
 }
 
+/* ─── Theme Transition ──────────────────────────────────────── */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 500ms var(--ease),
+    color 500ms var(--ease),
+    border-color 500ms var(--ease),
+    box-shadow 500ms var(--ease),
+    fill 500ms var(--ease),
+    stroke 500ms var(--ease),
+    filter 500ms var(--ease) !important;
+}
+
 /* ─── Reset ─────────────────────────────────────────────────── */
 *,
 *::before,
@@ -73,10 +87,15 @@
 }
 
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -116,7 +135,7 @@ ol {
 .t-display {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: clamp(2.4rem, 7vw, 6.5rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
@@ -124,7 +143,7 @@ ol {
 .t-h1 {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-size: clamp(1.8rem, 5vw, 4.5rem);
   line-height: 1.1;
   letter-spacing: -0.015em;
 }
@@ -175,6 +194,18 @@ ol {
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--sp-3);
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0 var(--sp-2);
+  }
+}
+
 /* ─── Reveal Animation ───────────────────────────────────────── */
 .reveal {
   opacity: 0;
@@ -221,5 +252,11 @@ ol {
 @media (max-width: 768px) {
   .section {
     padding: var(--sp-10) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--sp-8) 0;
   }
 }

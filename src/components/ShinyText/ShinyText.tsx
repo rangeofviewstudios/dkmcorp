@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './ShinyText.css';
 
 interface ShinyTextProps {
@@ -29,14 +29,27 @@ const ShinyText: React.FC<ShinyTextProps> = ({
     delay = 0
 }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const ref = useRef<HTMLSpanElement>(null);
 
-    const isPaused = disabled || (isHovered && pauseOnHover);
+    useEffect(() => {
+        if (!ref.current) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsVisible(entry.isIntersecting),
+            { threshold: 0 }
+        );
+        observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, []);
+
+    const isPaused = disabled || !isVisible || (isHovered && pauseOnHover);
     const animDir = direction === 'left'
         ? (yoyo ? 'alternate-reverse' : 'reverse')
         : (yoyo ? 'alternate' : 'normal');
 
     return (
         <span
+            ref={ref}
             className={`shiny-text ${isPaused ? 'shiny-text--paused' : ''} ${className}`}
             style={{
                 '--shine-speed': `${speed}s`,

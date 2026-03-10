@@ -94,3 +94,14 @@
         margin-top: 0;
     }
 }
+
+@media (max-width: 480px) {
+    .contactCard {
+        padding: var(--sp-3) var(--sp-3);
+        flex-wrap: wrap;
+    }
+
+    .contactLabel {
+        width: auto;
+    }
+}

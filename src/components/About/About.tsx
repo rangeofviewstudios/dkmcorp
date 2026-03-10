@@ -22,13 +22,15 @@ export default function About() {
             <div className={`container ${styles.inner}`}>
                 {/* Left column */}
                 <div className={styles.left}>
-                    <ShinyText
-                        text="About DKM Corp"
-                        className="t-label reveal"
-                        speed={8}
-                        color="var(--off-white-dim)"
-                        shineColor="var(--accent)"
-                    />
+                    <span className="reveal">
+                        <ShinyText
+                            text="About DKM Corp"
+                            className="t-label"
+                            speed={8}
+                            color="var(--off-white-dim)"
+                            shineColor="var(--accent)"
+                        />
+                    </span>
                     <span className="accent-line reveal reveal-delay-1" />
                     <h2 className={`t-h1 ${styles.heading} reveal reveal-delay-1`}>
                         A private growth &amp;
@@ -37,8 +39,8 @@ export default function About() {
                     </h2>
                     <p className={`t-body ${styles.body} reveal reveal-delay-2`}>
                         DKM Corp works across India, Australia, United States, and Dubai.
-                        We identify performance bottlenecks — whether revenue stagnation,
-                        operational inefficiency, or margin compression — and install
+                        We identify performance bottlenecks, whether revenue stagnation,
+                        operational inefficiency, or margin compression, and install
                         structured systems to solve them.
                     </p>
                     <p className={`t-body ${styles.body} reveal reveal-delay-2`}>

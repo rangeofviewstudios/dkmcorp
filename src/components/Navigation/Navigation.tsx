@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import styles from './Navigation.module.css';
 
@@ -50,6 +50,10 @@ export default function Navigation() {
     const toggleTheme = () => {
         const next = !isDark;
         setIsDark(next);
+
+        // Enable smooth transition between themes
+        document.documentElement.classList.add('theme-transition');
+
         if (next) {
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
@@ -57,6 +61,11 @@ export default function Navigation() {
             document.documentElement.removeAttribute('data-theme');
             localStorage.setItem('theme', 'light');
         }
+
+        // Remove transition class after animation completes
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-transition');
+        }, 500);
     };
 
     const navLinks = [
@@ -67,6 +76,48 @@ export default function Navigation() {
     ];
 
     const handleClose = () => setMenuOpen(false);
+    const overlayRef = useRef<HTMLDivElement>(null);
+
+    const handleTrapFocus = useCallback((e: KeyboardEvent) => {
+        if (!menuOpen || !overlayRef.current) return;
+
+        if (e.key === 'Escape') {
+            setMenuOpen(false);
+            return;
+        }
+
+        if (e.key !== 'Tab') return;
+
+        const focusable = overlayRef.current.querySelectorAll<HTMLElement>(
+            'a[href], button, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }, [menuOpen]);
+
+    useEffect(() => {
+        if (menuOpen) {
+            document.addEventListener('keydown', handleTrapFocus);
+            // Focus first link when overlay opens
+            const timer = setTimeout(() => {
+                overlayRef.current?.querySelector<HTMLElement>('a')?.focus();
+            }, 100);
+            return () => {
+                document.removeEventListener('keydown', handleTrapFocus);
+                clearTimeout(timer);
+            };
+        }
+    }, [menuOpen, handleTrapFocus]);
 
     return (
         <>
@@ -121,6 +172,7 @@ export default function Navigation() {
 
             {/* Mobile overlay */}
             <div
+                ref={overlayRef}
                 className={`${styles.overlay} ${menuOpen ? styles.overlayOpen : ''}`}
                 aria-hidden={!menuOpen}
             >

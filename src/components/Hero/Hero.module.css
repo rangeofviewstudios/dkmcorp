@@ -28,7 +28,7 @@
 .content {
     position: relative;
     z-index: 1;
-    padding-top: var(--sp-12);
+    padding-top: var(--sp-6);
     padding-bottom: var(--sp-16);
 }
 
@@ -224,6 +224,13 @@
     }
 }
 
+@media (max-width: 768px) {
+    .headlineWrap {
+        grid-template-columns: 1fr;
+        gap: var(--sp-4);
+    }
+}
+
 @media (max-width: 600px) {
     .geo {
         flex-direction: column;
@@ -232,22 +239,32 @@
     }
 
     .geoList {
-        flex-wrap: wrap;
-        gap: var(--sp-2);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px var(--sp-4);
     }
 
     .geoItem {
         border-left: none;
         padding: 0;
+        font-size: 0.7rem;
     }
 
     .geoItem::before {
-        content: '·';
-        margin-right: 6px;
-        color: var(--accent);
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-right: 8px;
+        vertical-align: middle;
     }
+}
 
-    .geoItem:first-child::before {
-        display: none;
+@media (max-width: 375px) {
+    .geoList {
+        grid-template-columns: 1fr;
+        gap: 6px;
     }
 }

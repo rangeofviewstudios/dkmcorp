@@ -30,13 +30,15 @@ export default function Contact() {
                 <div className={styles.inner}>
                     {/* Left: Headline */}
                     <div className={styles.left}>
-                        <ShinyText
-                            text="Contact"
-                            className="t-label reveal"
-                            speed={8}
-                            color="var(--off-white-dim)"
-                            shineColor="var(--accent)"
-                        />
+                        <span className="reveal">
+                            <ShinyText
+                                text="Contact"
+                                className="t-label"
+                                speed={8}
+                                color="var(--off-white-dim)"
+                                shineColor="var(--accent)"
+                            />
+                        </span>
                         <span className="accent-line reveal reveal-delay-1" />
                         <h2 className={`t-h1 ${styles.heading} reveal reveal-delay-1`}>
                             If you are building,

@@ -122,3 +122,14 @@
         align-items: flex-start;
     }
 }
+
+@media (max-width: 480px) {
+    .model {
+        padding: var(--sp-4) var(--sp-3);
+    }
+
+    .ctaBtn {
+        padding: 12px 20px;
+        font-size: 0.68rem;
+    }
+}

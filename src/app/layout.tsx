@@ -29,6 +29,15 @@ export const metadata: Metadata = {
     description:
       "We identify performance bottlenecks and install structured systems to solve them. Execution-first.",
     type: "website",
+    url: "https://dkmcorp.in",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DKM Corp — Growth & Operations Partner",
+      },
+    ],
   },
 };
 
@@ -41,6 +50,41 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}` }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "DKM Corp",
+              url: "https://dkmcorp.in",
+              description:
+                "Private growth and operations partner. We design, market, and operate.",
+              foundingDate: "2024",
+              founder: {
+                "@type": "Person",
+                name: "Dheeraj Kumar Miryala",
+              },
+              areaServed: [
+                "India",
+                "Australia",
+                "United States",
+                "Dubai",
+              ],
+              serviceType: [
+                "Digital Infrastructure & Web Systems",
+                "AI & Intelligent Automation",
+                "Growth Marketing Systems",
+                "Business Operations & Performance Management",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                email: "info@dkmcorp.in",
+                contactType: "customer service",
+              },
+            }),
+          }}
+        />
       </head>
       <body>
         <Navigation />

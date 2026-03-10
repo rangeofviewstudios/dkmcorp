@@ -11,7 +11,7 @@ const TIMEZONES = [
     { label: 'Australia', zone: 'Australia/Sydney' },
 ];
 
-function useClocks() {
+function ClockStrip() {
     const [times, setTimes] = useState<string[]>([]);
 
     useEffect(() => {
@@ -34,12 +34,22 @@ function useClocks() {
         return () => clearInterval(id);
     }, []);
 
-    return times;
+    return (
+        <div className={`container ${styles.clockStrip}`}>
+            {TIMEZONES.map((tz, i) => (
+                <div key={tz.zone} className={styles.clockItem}>
+                    <span className={styles.clockLabel}>{tz.label}</span>
+                    <span className={styles.clockTime} suppressHydrationWarning>
+                        {times[i] || '--:--:-- --'}
+                    </span>
+                </div>
+            ))}
+        </div>
+    );
 }
 
 export default function Footer() {
     const year = new Date().getFullYear();
-    const times = useClocks();
 
     return (
         <footer className={styles.footer}>
@@ -61,12 +71,12 @@ export default function Footer() {
                         We Design. We Market. We Operate.
                     </p>
                     <p className={styles.geo}>
-                        India &nbsp;·&nbsp; Australia &nbsp;·&nbsp; United States &nbsp;·&nbsp; Dubai
+                        India · Australia · United States · Dubai
                     </p>
                 </div>
 
                 <div className={styles.right}>
-                    <p className="t-label" style={{ marginBottom: '20px' }}>Connect</p>
+                    <p className={`t-label ${styles.connectLabel}`}>Connect</p>
                     <ul className={styles.contactList}>
                         <li>
                             <a
@@ -90,15 +100,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* Timezone clocks */}
-            <div className={`container ${styles.clockStrip}`}>
-                {TIMEZONES.map((tz, i) => (
-                    <div key={tz.zone} className={styles.clockItem}>
-                        <span className={styles.clockLabel}>{tz.label}</span>
-                        <span className={styles.clockTime}>{times[i] || '--:--:-- --'}</span>
-                    </div>
-                ))}
-            </div>
+            <ClockStrip />
 
             <div className={`container ${styles.bottom}`}>
                 <div className={styles.bottomLeft}>

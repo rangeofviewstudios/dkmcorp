@@ -97,6 +97,14 @@
         grid-template-columns: 1fr;
         gap: var(--sp-8);
     }
+}
 
+@media (max-width: 768px) {
+    .stat {
+        padding: var(--sp-3) var(--sp-4);
+    }
 
+    .statValue {
+        font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    }
 }

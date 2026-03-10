@@ -29,6 +29,7 @@ const projects = [
         tag: 'Margin Optimization',
         status: 'completed',
         headline: 'AI Systems & Operational Efficiency',
+        link: 'https://www.rovstudios.com/ai-automation',
         summary:
             'Implemented AI systems within an established firm facing geopolitical revenue constraints — reducing payroll dependency and protecting long-term profitability.',
     },
@@ -37,6 +38,7 @@ const projects = [
         tag: 'Real Estate Marketing',
         status: 'ongoing',
         headline: 'Real Estate & Brand Monetization',
+        link: 'https://www.rovstudios.com/video-production',
         summary:
             'Providing structured marketing solutions for real estate companies and public-facing brands. Focused on positioning, targeted acquisition, and monetization optimization.',
     },
@@ -98,11 +100,7 @@ const ProjectCard = ({ p }: { p: typeof projects[0] }) => {
                 </div>
             )}
             <div className={styles.cardFoot}>
-                {p.link ? (
-                    <span className={styles.arrow} style={{ transform: 'rotate(-45deg)', display: 'inline-block' }}>→</span>
-                ) : (
-                    <span className={styles.arrow}>→</span>
-                )}
+                <span className={styles.arrow}>→</span>
             </div>
         </CardWrapper>
     );

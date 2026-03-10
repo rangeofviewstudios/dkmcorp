@@ -93,6 +93,7 @@ export default function Services() {
                             role="button"
                             tabIndex={0}
                             aria-expanded={openIndex === i}
+                            aria-controls={`service-panel-${i}`}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter' || e.key === ' ') {
                                     e.preventDefault();
@@ -112,7 +113,7 @@ export default function Services() {
                                 </span>
                             </div>
 
-                            <div className={styles.bullets}>
+                            <div id={`service-panel-${i}`} role="region" className={styles.bullets}>
                                 <ul>
                                     {svc.bullets.map((b, j) => (
                                         <li key={j} className={styles.bullet}>
@@ -121,6 +122,29 @@ export default function Services() {
                                         </li>
                                     ))}
                                 </ul>
+                                {(i === 0 || i === 1) && (
+                                    <div className={styles.partnerBadge}>
+                                        <span className={styles.partnerLabel}>Delivered in partnership with</span>
+                                        <a
+                                            href="https://www.rovstudios.com/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.partnerLink}
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <img
+                                                src="/Black_Logo_BG_removed.png"
+                                                alt="ROV Studios"
+                                                className={styles.partnerLogoLight}
+                                            />
+                                            <img
+                                                src="/rovbrownlogo.png"
+                                                alt="ROV Studios"
+                                                className={styles.partnerLogoDark}
+                                            />
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ))}
