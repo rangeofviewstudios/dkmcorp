@@ -34,7 +34,7 @@ export default function Contact() {
                             <ShinyText
                                 text="Contact"
                                 className="t-label"
-                                speed={8}
+                                speed={14}
                                 color="var(--off-white-dim)"
                                 shineColor="var(--accent)"
                             />
@@ -45,7 +45,14 @@ export default function Contact() {
                             <br />
                             scaling, or restructuring —
                             <br />
-                            <em>let&apos;s talk.</em>
+                            <em>
+                                <ShinyText
+                                    text="let's talk."
+                                    speed={14}
+                                    color="var(--accent)"
+                                    shineColor="#fff"
+                                />
+                            </em>
                         </h2>
                         <p className={`t-body ${styles.sub} reveal reveal-delay-2`}>
                             We work with a select number of partners at any given time.

@@ -38,7 +38,7 @@ export default function Engagement() {
                         <ShinyText
                             text="Engagement Model"
                             className="t-label"
-                            speed={8}
+                            speed={14}
                             color="var(--off-white-dim)"
                             shineColor="var(--accent)"
                         />

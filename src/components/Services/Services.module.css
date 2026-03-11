@@ -133,7 +133,7 @@
 }
 
 .cardOpen .bullets {
-    max-height: 500px;
+    max-height: 2400px;
     opacity: 1;
     transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -146,6 +146,14 @@
     gap: 10px;
 }
 
+.description {
+    padding: var(--sp-4) var(--sp-4) 0 80px;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--off-white-dim);
+    font-weight: 300;
+}
+
 .bullet {
     display: flex;
     align-items: center;
@@ -153,6 +161,11 @@
     font-size: 0.85rem;
     font-weight: 300;
     color: var(--off-white-dim);
+}
+
+.bulletTitle {
+    color: var(--accent);
+    font-weight: 700;
 }
 
 .bulletDot {
@@ -167,35 +180,56 @@
 .partnerBadge {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--sp-2);
     margin-left: 80px;
     margin-top: var(--sp-3);
-    padding-top: var(--sp-3);
+    padding-top: var(--sp-4);
     border-top: 1px solid var(--border);
+    text-decoration: none;
+    transition: opacity var(--dur-fast) var(--ease);
+    cursor: pointer;
+}
+
+.partnerBadge:hover {
+    opacity: 0.85;
+}
+
+.partnerBadge:hover .partnerArrow {
+    transform: translate(2px, -2px);
+    color: var(--accent);
+}
+
+.partnerContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .partnerLabel {
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-faint);
+    color: var(--off-white);
 }
 
 .partnerLink {
     display: inline-flex;
     align-items: center;
-    height: 32px;
-    transition: opacity var(--dur-fast) var(--ease);
-}
-
-.partnerLink:hover {
-    opacity: 0.75;
+    height: 44px; /* Increased from 32px for prominence */
 }
 
 .partnerLink img {
     height: 100%;
     width: auto;
     object-fit: contain;
+}
+
+.partnerArrow {
+    font-size: 1.2rem;
+    color: var(--text-faint);
+    transition: transform var(--dur-fast) var(--ease),
+        color var(--dur-fast) var(--ease);
 }
 
 .partnerLogoDark {
@@ -208,7 +242,7 @@
 
 :global([data-theme="dark"]) .partnerLogoDark {
     display: block;
-    height: 51px;
+    height: 64px; /* Increased from 51px */
 }
 
 @media (max-width: 600px) {
@@ -242,6 +276,11 @@
         grid-column: 2;
     }
 
+    /* Reset indentation — remove the desktop 80px left offset */
+    .description {
+        display: none;
+    }
+
     .bullets ul {
         padding: var(--sp-3) 0 var(--sp-2) 0;
         gap: 8px;
@@ -253,8 +292,20 @@
 
     .partnerBadge {
         margin-left: 0;
+        align-items: flex-start;
+    }
+
+    .partnerContent {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
+    }
+    
+    .partnerLink {
+        height: 36px;
+    }
+
+    :global([data-theme="dark"]) .partnerLogoDark {
+        height: 54px;
     }
 }

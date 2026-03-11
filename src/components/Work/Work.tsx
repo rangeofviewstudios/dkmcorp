@@ -126,7 +126,7 @@ export default function Work() {
                         <ShinyText
                             text="Selected Work"
                             className="t-label"
-                            speed={8}
+                            speed={14}
                             color="var(--off-white-dim)"
                             shineColor="var(--accent)"
                         />
@@ -134,7 +134,7 @@ export default function Work() {
                         <h2 className={`t-h1 ${styles.heading}`}>
                             <ShinyText
                                 text="Outcomes across"
-                                speed={8}
+                                speed={14}
                                 color="var(--off-white)"
                                 shineColor="var(--accent)"
                             />
@@ -142,7 +142,7 @@ export default function Work() {
                             <em>
                                 <ShinyText
                                     text="four markets."
-                                    speed={8}
+                                    speed={14}
                                     color="var(--off-white-dim)"
                                     shineColor="var(--accent)"
                                 />

@@ -28,7 +28,7 @@ export default function Hero() {
                 <ShinyText
                     text="Private Growth & Operations Partner"
                     className={`t-label ${styles.label}`}
-                    speed={8}
+                    speed={14}
                     color="var(--off-white-dim)"
                     shineColor="var(--accent)"
                 />

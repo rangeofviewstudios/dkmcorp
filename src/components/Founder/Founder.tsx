@@ -23,7 +23,7 @@ export default function Founder() {
                         <ShinyText
                             text="The Founder"
                             className="t-label"
-                            speed={8}
+                            speed={14}
                             color="var(--off-white-dim)"
                             shineColor="var(--accent)"
                         />
@@ -31,7 +31,12 @@ export default function Founder() {
                     <span className="accent-line reveal reveal-delay-1" />
 
                     <h2 className={`t-h1 ${styles.heading} reveal reveal-delay-1`}>
-                        Dheeraj Kumar Miryala
+                        <ShinyText
+                            text="Dheeraj Kumar Miryala"
+                            speed={14}
+                            color="var(--accent)"
+                            shineColor="#fff"
+                        />
                     </h2>
                 </div>
 

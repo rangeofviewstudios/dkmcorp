@@ -26,7 +26,7 @@ export default function About() {
                         <ShinyText
                             text="About DKM Corp"
                             className="t-label"
-                            speed={8}
+                            speed={14}
                             color="var(--off-white-dim)"
                             shineColor="var(--accent)"
                         />
@@ -38,7 +38,10 @@ export default function About() {
                         <em>operations partner.</em>
                     </h2>
                     <p className={`t-body ${styles.body} reveal reveal-delay-2`}>
-                        DKM Corp works across India, Australia, United States, and Dubai.
+                        DKM Corp works across{' '}
+                        <span style={{ color: 'var(--accent)', fontWeight: 600 }}>
+                            India, Australia, United States, and Dubai.
+                        </span>{' '}
                         We identify performance bottlenecks, whether revenue stagnation,
                         operational inefficiency, or margin compression, and install
                         structured systems to solve them.
